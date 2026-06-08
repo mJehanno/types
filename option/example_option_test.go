@@ -18,5 +18,5 @@ func ExampleOption() {
 	config := GetConfigFromEnv()
 
 	fmt.Println(config.RootPath.UnwrapOrDefault("~/.config/example"))
-	// Output: "~/.config/example"
+	// Output: ~/.config/example
 }

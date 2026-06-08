@@ -41,6 +41,11 @@ func (r resultBase[T]) UnwrapOrElse(def func() T) T {
 	return r.value
 }
 
+// GetError returns the underlying error of the [Err] type.
+func (e Err[T]) GetError() error {
+	return e.err
+}
+
 // NewOk create a [Ok] with the provided value.
 func NewOk[T any](value T) Ok[T] {
 	return Ok[T]{resultBase: resultBase[T]{value: value}}
