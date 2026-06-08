@@ -36,3 +36,9 @@ func main() {
 
 To sum it up, `Option[T]` is used when something can either have a value or be null. This is reflected by the provided type `Some` and `None`. You have to **unwrap** if you want to use the value.
 You can switch on its type (`Some` or `None`) if you want to do something in either cases.
+
+### Result
+
+Result is a type made to enforce error handling. A function returning a `Result[T]` will either return `Ok[T]` (with a value) or `Err[T]`. You can **unwrap** a `Result` or switch on its type, the same way you could with `Option`.
+
+If the result is of type `Err[T]` you can call `GetError` to retrieve the underlying error.
