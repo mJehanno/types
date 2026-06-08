@@ -1,11 +1,13 @@
 package option_test
 
 import (
+	"fmt"
 	"testing"
 
 	"github.com/mJehanno/types/option"
 )
 
+// Tests
 func Test_UnwrapOrDefault(t *testing.T) {
 	tests := []struct {
 		name     string
@@ -133,4 +135,33 @@ func Test_UnwrapOrElse(t *testing.T) {
 			}
 		})
 	}
+}
+
+// Examples
+func ExampleSome_UnwrapOrDefault() {
+	some := option.NewSome(7)
+
+	fmt.Println(some.UnwrapOrDefault(10))
+	// Output: 7
+}
+
+func ExampleNone_UnwrapOrDefault() {
+	some := option.NewNone[int]()
+
+	fmt.Println(some.UnwrapOrDefault(10))
+	// Output: 10
+}
+
+func ExampleSome_UnwrapOrElse() {
+	some := option.NewSome(7)
+
+	fmt.Println(some.UnwrapOrElse(func() int { return 9 }))
+	// Output: 7
+}
+
+func ExampleNone_UnwrapOrElse() {
+	some := option.NewNone[int]()
+
+	fmt.Println(some.UnwrapOrElse(func() int { return 10 }))
+	// Output: 10
 }
