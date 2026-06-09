@@ -48,3 +48,8 @@ func NewSome[T any](value T) Some[T] {
 func NewNone[T any]() None[T] {
 	return None[T]{optionBase: optionBase[T]{isSome: false}}
 }
+
+// GetValue returns the underlying value of the [Some] type.
+func (s Some[T]) GetValue() T {
+	return s.value
+}

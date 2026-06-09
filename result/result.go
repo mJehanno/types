@@ -46,6 +46,11 @@ func (e Err[T]) GetError() error {
 	return e.err
 }
 
+// GetValue returns the underlying value of the [Ok] type.
+func (o Ok[T]) GetValue() T {
+	return o.value
+}
+
 // NewOk create a [Ok] with the provided value.
 func NewOk[T any](value T) Ok[T] {
 	return Ok[T]{resultBase: resultBase[T]{value: value}}
